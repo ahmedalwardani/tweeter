@@ -1,0 +1,88 @@
+.tweet {
+  margin-top: 40px;
+  padding: 10px;
+  width: 100%;
+  background-color: inherit;
+  border: #545149 4px solid;
+  height: 210px;
+}
+
+.tweet:hover {
+  box-shadow: 15px 15px 15px #4056a1;
+}
+
+.tweet:hover > header > .account {
+  display: block;
+  float: right;
+  padding: 10px;
+  margin-top: -35px;
+}
+
+.tweet:hover > footer > .interactions > .buttons > .icons {
+  height: 17px;
+}
+
+.tweet-date {
+  border-top: #545149 4px solid;
+  font-size: 15px;
+  margin-top: -10px;
+  padding-top: 10px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  float: right;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  background-color: inherit#4056a1;
+}
+
+.flag {
+  height: 30px;
+  width: 30px;
+}
+
+.interactions {
+  display: flex;
+  float: right;
+}
+
+.icons {
+  fill: #4056a1;
+  height: 15px;
+  display: block;
+  margin-top: -40px;
+}
+
+.tweet-content {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 500;
+  margin-bottom: 30px;
+  padding-left: 20px;
+}
+
+.tweet img {
+  height: 50px;
+  width: 50px;
+}
+
+.account {
+  display: none;
+}
+
+.full-name {
+  margin-top: -50px;
+  margin-left: 70px;
+}
+
+article.tweet header {
+  height: 100px;
+  width: 100%;
+}
+
+.single-tweet {
+  position: relative;
+  top: 100px;
+}
