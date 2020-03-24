@@ -17,10 +17,20 @@ html {
  */
 
 body {
-  color: #545149;
+  color: var(--colour2);
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+/*
+* Additional CSS can be defined below or in other CSS files, as per instructions
+*/
+
+:root {
+  --colour1: #8fa2df;
+  --colour2: #545149;
+  --colour3: #4056a1;
 }
 
 main {
@@ -30,7 +40,3 @@ main {
   top: 520px;
   margin: auto;
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */

@@ -25,7 +25,7 @@
 #tweet-text {
   width: 100%;
   border: none;
-  border-bottom: #545149 solid 3px;
+  border-bottom: var(--colour2) solid 3px;
   background-color: inherit;
   margin-top: 15px;
   resize: none;
