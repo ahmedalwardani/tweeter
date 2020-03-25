@@ -1,9 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
- 
 $(document).ready(() => {
   const createTweetElement = tweetObj => {
     let $tweet = $("<article>").addClass("tweet");
@@ -67,50 +61,46 @@ $(document).ready(() => {
     return $tweet;
   };
  
+  const getTweets = () => {
+    $.ajax({
+      url:"/tweets",
+      type:"GET",
+      dataType: "JSON"
+    })
+      .then(response => {
+        renderTweets(response.reverse());
+      });
+  };
+
   const renderTweets = tweets => {
+    $("#tweets-container").empty();
     for (const tweet of tweets) {
-      const $newTweet = createTweetElement(tweet);
-      $("#tweets-container").append($newTweet);
+      $("#tweets-container").append(createTweetElement(tweet));
     }
   };
-  const data = [
-    {
-      "user": {
-        "name": "Ahmed",
-        "avatars": "/images/profile-hex.png"
-        ,
-        "handle": "@ahmedalwardani"
-      },
-      "content": {
-        "text": "Just joined Tweeter!"
-      },
-      "created_at": 1585158034878
-    },
-    
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
+  
+  $("#submit-form").on("submit", function(event) {
+    event.preventDefault();
+    if ($("#tweet-text").val().length === 0 || !$("#tweet-text").val()) {
+      alert("empty tweet!");
+      
+    } else if ($("#tweet-text").val().length > 140) {
+      alert("exceeding allowed tweet length!");
+    } else {
+      $.ajax({
+        url: "/tweets",
+        type: "POST",
+        data: $(this).serialize()
+      }).then(() => {
+        getTweets();
+        $("#tweet-text").val("");
+        $(".counter").val("140");
+      });
     }
-  ];
-  renderTweets(data);
+  });
+
+  // Only on page load
+  getTweets();
 });
 
 

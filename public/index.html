@@ -16,6 +16,17 @@
       rel="stylesheet"
     />
 
+    <!-- External JS -->
+    <script src="jquery.timeago.js" type="text/javascript" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- App JS -->
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
+    <script type="text/javascript" src="/scripts/client.js" defer></script>
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
@@ -68,24 +79,18 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form>
+        <form id="submit-form">
           <label for="tweet-text" class="new-tweet-label"
             >What are you humming about?</label
           >
           <textarea name="text" id="tweet-text"></textarea>
-          <button type="submit" class="submit-button">Tweet</button>
+          <button type="submit" class="submit-button">
+            Tweet
+          </button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </form>
       </section>
       <section id="tweets-container"></section>
     </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script
-      type="text/javascript"
-      src="/scripts/composer-char-counter.js"
-    ></script>
-    <script src="jquery.min.js" type="text/javascript"></script>
-    <script src="jquery.timeago.js" type="text/javascript"></script>
   </body>
 </html>
