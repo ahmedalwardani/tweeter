@@ -5,6 +5,7 @@
 
 .new-tweet-label {
   width: 100%;
+  margin-top: 30px;
 }
 
 .submit-button {
@@ -15,6 +16,10 @@
   margin-top: 10px;
   cursor: pointer;
   border: none;
+}
+
+#main-form {
+  display: none;
 }
 
 .submit-button:hover {
@@ -63,7 +68,5 @@
   margin-top: 0px;
   display: flex;
   color: black;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  padding-top: 2px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
 }

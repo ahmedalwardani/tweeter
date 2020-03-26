@@ -6,6 +6,7 @@
   background-color: inherit;
   border: var(--colour2) 4px solid;
   height: 210px;
+  word-wrap: break-word;
 }
 
 .tweet:hover {
@@ -56,7 +57,7 @@
 .tweet-content {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 500;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   padding-left: 20px;
 }
 
@@ -82,4 +83,9 @@ article.tweet header {
 .single-tweet {
   position: relative;
   top: 100px;
+}
+
+#tweets-container {
+  align-content: center;
+  justify-content: center;
 }

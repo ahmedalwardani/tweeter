@@ -1,13 +1,13 @@
 $(document).ready(() => {
   const createTweetElement = tweetObj => {
-    let $tweet = $("<article>").addClass("tweet");
+    const $tweet = $("<article>").addClass("tweet");
     $tweet.append(`
    <header>
    <img src="${tweetObj.user.avatars}" alt="Profile Pic!" />
    <div class="full-name">${tweetObj.user.name}</div>
-   <div class="account">${tweetObj.user.handle.text()}</div>
+   <div class="account">${tweetObj.user.handle}</div>
  </header>
- <div class="tweet-content">${tweetObj.content.text}</div>
+ <div class="tweet-content">${escape(tweetObj.content.text)}</div>
  <footer>
    <div class="tweet-date">
      ${jQuery.timeago(tweetObj.created_at)}
@@ -61,16 +61,15 @@ $(document).ready(() => {
     return $tweet;
   };
 
- 
+
   const getTweets = () => {
     $.ajax({
-      url:"/tweets",
-      type:"GET",
+      url: "/tweets",
+      type: "GET",
       dataType: "JSON"
-    })
-      .then(response => {
-        renderTweets(response.reverse());
-      });
+    }).then(response => {
+      renderTweets(response.reverse());
+    });
   };
 
   const renderTweets = tweets => {
@@ -79,20 +78,22 @@ $(document).ready(() => {
       $("#tweets-container").append(createTweetElement(tweet));
     }
   };
-  
-  $("#submit-form").on("submit", function(event) {
+
+  $(".submit-form").on("submit", function(event) {
     event.preventDefault();
+    $("#error-div")
+      .children("p")
+      .remove();
     if ($("#tweet-text").val().length === 0 || !$("#tweet-text").val()) {
-      $("#error-div").children("p").remove();
-      $("#error-div").append("<p class=error-message>Please enter something!</p>");
-      $("#error-div").css("display", "flex");
-      $(".submit-button").blur();
-      
+      $("#error-div").append(
+        "<p class=error-message>Please enter something!</p>"
+      );
+      $("#error-div").slideDown();
     } else if ($("#tweet-text").val().length > 140) {
-      $("#error-div").children("p").remove();
-      $("#error-div").append("<p class=error-message>Exceeding allowed tweet length!</p>");
-      $("#error-div").css("display", "flex");
-      $(".submit-button").blur();
+      $("#error-div").append(
+        "<p class=error-message>Exceeding allowed tweet length!</p>"
+      );
+      $("#error-div").slideDown();
     } else {
       $("#error-div").css("display", "none");
       $.ajax({
@@ -103,17 +104,28 @@ $(document).ready(() => {
         getTweets();
         $("#tweet-text").val("");
         $(".counter").val("140");
-        $(".submit-button").blur();
       });
     }
+    $(".submit-button").blur();
+  });
+
+  $(".write-tweet").click(() => {
+    if ($("#main-form").css("display") === "none") {
+      $("#main-form").slideDown();
+      $("#tweet-text").focus();
+    } else {
+      $("#main-form").slideUp();
+    }
+    $(".write-tweet").blur();
   });
 
   // Only on page load
   getTweets();
+
+  const escape =  function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
 });
-
-
-
-
-
-
