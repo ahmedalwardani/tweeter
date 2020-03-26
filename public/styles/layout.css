@@ -40,3 +40,27 @@ main {
   top: 520px;
   margin: auto;
 }
+
+#scroll-button {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  border-radius: 75%;
+  height: 80px;
+  width: 80px;
+  background-color: red;
+  justify-content: center;
+}
+
+#scroll-button:hover {
+  background-color: var(--colour3);
+  cursor: pointer;
+}
+
+#scroll-svg {
+  height: 50px;
+  width: 50px;
+  fill: white;
+  display: inherit;
+}
