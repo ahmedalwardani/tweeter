@@ -1,0 +1,94 @@
+.tweet {
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding: 30px;
+  width: 100%;
+  background-color: inherit;
+  border: var(--colour2) 4px solid;
+  height: 250px;
+  word-wrap: break-word;
+  &:hover {
+    box-shadow: 7px 7px 0px 2px var(--colour1);
+    .account {
+      display: block;
+    }
+  }
+
+  footer {
+    height: 30px;
+    display: flex;
+    padding-top: 10px;
+    justify-content: space-between;
+    width: 100%;
+    border-top: var(--colour2) 4px solid;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .full-name {
+      padding-left: 20px;
+    }
+
+    .name-container {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  footer > .tweet-date {
+    font-size: 15px;
+  }
+
+  .buttons {
+    float: right;
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+  }
+  .interactions {
+    display: flex;
+    // float: right;
+  }
+  .icons {
+    fill: var(--colour3);
+    height: 15px;
+    display: block;
+    border: none;
+  }
+  .tweet-content {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 500;
+    height: 75px;
+    overflow: auto;
+  }
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
+  .account {
+    display: none;
+    color: var(--colour1);
+  }
+}
+
+.tweet > footer > .interactions > .buttons > .icons:hover {
+  fill: var(--colour3);
+  height: 20px;
+  display: block;
+  border: none;
+}
+
+.single-tweet {
+  position: relative;
+  top: 100px;
+}
+
+#tweets-container {
+  align-content: center;
+  justify-content: center;
+}

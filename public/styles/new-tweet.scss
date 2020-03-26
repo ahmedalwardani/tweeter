@@ -1,0 +1,70 @@
+main {
+  .new-tweet {
+    margin-bottom: 30px;
+
+    #error-div {
+      display: none;
+      position: relative;
+      border: red 2px solid;
+      text-align: left;
+      height: 50px;
+      margin-top: 30px;
+      padding-top: 7px;
+      padding-left: 50px;
+
+      svg {
+        height: 30px;
+        float: left;
+        fill: red;
+      }
+    }
+
+    form {
+      display: none;
+      label {
+        width: 100%;
+        margin-top: 30px;
+      }
+
+      textarea {
+        width: 100%;
+        border: none;
+        border-bottom: var(--colour2) solid 3px;
+        background-color: inherit;
+        margin-top: 15px;
+        resize: none;
+        height: 45px;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      button {
+        background-color: #4056a1;
+        color: white;
+        font-family: "Bungee", cursive;
+        padding: 4px 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        border: none;
+        &:hover {
+          background-color: orange;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.7);
+        }
+      }
+
+      output {
+        float: right;
+        font-family: "Bungee", cursive;
+        margin-top: 12px;
+      }
+    }
+  }
+}
+
+.error-message {
+  margin-top: 0px;
+  display: flex;
+  color: black;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
+}

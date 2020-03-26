@@ -1,0 +1,47 @@
+nav {
+  position: fixed;
+  top: 0;
+  height: 120px;
+  width: 100vw;
+  z-index: 500;
+  background-color: var(--colour3);
+  color: #ffffff;
+  padding: 1.5em;
+
+  span {
+    font-family: "Bungee", cursive;
+    position: relative;
+    top: 10px;
+  }
+
+  button {
+    float: right;
+    border: none;
+    background-color: inherit;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      svg {
+        height: 30px;
+        width: 30px;
+      }
+    }
+    svg {
+      height: 20px;
+      width: 20px;
+      fill: red;
+      margin-top: 8px;
+      animation-name: arrow-down;
+      animation-duration: 1s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+}
+
+@keyframes arrow-down {
+  to {
+    margin-top: 15px;
+  }
+}

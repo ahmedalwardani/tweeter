@@ -4,18 +4,20 @@
  * Do not modify these two selectors, please
  */
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 /*
  * Global layout stuff
  */
-
 body {
   color: var(--colour2);
   background-color: #f4f1ec;
@@ -23,17 +25,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-/*
-* Additional CSS can be defined below or in other CSS files, as per instructions
-*/
-
-:root {
-  --colour1: #8fa2df;
-  --colour2: #545149;
-  --colour3: #4056a1;
-}
-
-main {
+body main {
   width: 90%;
   background-color: inherit;
   position: relative;
@@ -41,7 +33,7 @@ main {
   margin: auto;
 }
 
-#scroll-button {
+body main #scroll-button {
   display: none;
   position: fixed;
   right: 20px;
@@ -50,17 +42,35 @@ main {
   height: 80px;
   width: 80px;
   background-color: red;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-#scroll-button:hover {
+body main #scroll-button:hover {
   background-color: var(--colour3);
   cursor: pointer;
 }
 
-#scroll-svg {
+body main #scroll-button svg {
   height: 50px;
   width: 50px;
   fill: white;
   display: inherit;
 }
+
+:root {
+  --colour1: #8fa2df;
+  --colour2: #545149;
+  --colour3: #4056a1;
+}
+
+@media only screen and (min-width: 1024px) {
+  body > main {
+    width: calc(100vw - (240px + 35% + 40px + 100px));
+    top: 210px;
+    position: absolute;
+    left: calc(240px + 35% + 40px);
+  }
+}
+/*# sourceMappingURL=layout.css.map */

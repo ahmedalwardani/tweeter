@@ -3,8 +3,10 @@ $(document).ready(() => {
     const $tweet = $("<article>").addClass("tweet");
     $tweet.append(`
    <header>
+   <div class="name-container">
    <img src="${tweetObj.user.avatars}" alt="Profile Pic!" />
    <div class="full-name">${tweetObj.user.name}</div>
+   </div>
    <div class="account">${tweetObj.user.handle}</div>
  </header>
  <div class="tweet-content">${escape(tweetObj.content.text)}</div>
@@ -61,7 +63,6 @@ $(document).ready(() => {
     return $tweet;
   };
 
-
   const getTweets = () => {
     $.ajax({
       url: "/tweets",
@@ -107,6 +108,7 @@ $(document).ready(() => {
       });
     }
     $(".submit-button").blur();
+    $("#tweet-text").focus();
   });
 
   $(".write-tweet").click(() => {
@@ -115,6 +117,10 @@ $(document).ready(() => {
       $("#tweet-text").focus();
     } else {
       $("#main-form").slideUp();
+      $("#tweet-text").val("");
+      $("#error-div").css("display", "none");
+      $(".counter").val("140");
+      $(".counter").css("color", "#545149");
     }
     $(".write-tweet").blur();
   });
@@ -127,5 +133,4 @@ $(document).ready(() => {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
 });

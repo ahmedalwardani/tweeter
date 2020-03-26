@@ -1,53 +1,8 @@
-.new-tweet {
-  /* margin-left: 20px; */
+main .new-tweet {
   margin-bottom: 30px;
 }
 
-.new-tweet-label {
-  width: 100%;
-  margin-top: 30px;
-}
-
-.submit-button {
-  background-color: #4056a1;
-  color: white;
-  font-family: "Bungee", cursive;
-  padding: 4px 10px;
-  margin-top: 10px;
-  cursor: pointer;
-  border: none;
-}
-
-#main-form {
-  display: none;
-}
-
-.submit-button:hover {
-  background-color: orange;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.7);
-}
-
-#tweet-text {
-  width: 100%;
-  border: none;
-  border-bottom: var(--colour2) solid 3px;
-  background-color: inherit;
-  margin-top: 15px;
-  resize: none;
-  height: 45px;
-}
-
-#tweet-text:focus {
-  outline: none;
-}
-
-.counter {
-  float: right;
-  font-family: "Bungee", cursive;
-  margin-top: 12px;
-}
-
-#error-div {
+main .new-tweet #error-div {
   display: none;
   position: relative;
   border: red 2px solid;
@@ -58,15 +13,63 @@
   padding-left: 50px;
 }
 
-.error-sign {
+main .new-tweet #error-div svg {
   height: 30px;
   float: left;
   fill: red;
 }
 
+main .new-tweet form {
+  display: none;
+}
+
+main .new-tweet form label {
+  width: 100%;
+  margin-top: 30px;
+}
+
+main .new-tweet form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: var(--colour2) solid 3px;
+  background-color: inherit;
+  margin-top: 15px;
+  resize: none;
+  height: 45px;
+}
+
+main .new-tweet form textarea:focus {
+  outline: none;
+}
+
+main .new-tweet form button {
+  background-color: #4056a1;
+  color: white;
+  font-family: "Bungee", cursive;
+  padding: 4px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+main .new-tweet form button:hover {
+  background-color: orange;
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.7);
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.7);
+}
+
+main .new-tweet form output {
+  float: right;
+  font-family: "Bungee", cursive;
+  margin-top: 12px;
+}
+
 .error-message {
   margin-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   color: black;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
 }
+/*# sourceMappingURL=new-tweet.css.map */

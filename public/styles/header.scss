@@ -1,0 +1,32 @@
+.user-header {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  top: 120px;
+  background-color: orange;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .avatar > img {
+    width: 200px;
+  }
+
+  .username {
+    color: white;
+
+    h2 > span {
+      font-weight: 400;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .user-header {
+    width: 35%;
+    top: 200px;
+    left: 80px;
+  }
+}

@@ -1,5 +1,5 @@
 const scrollFunction = () => {
-  if ($(window).scrollTop() > 300) {
+  if ($(window).scrollTop() > 200) {
     $("#scroll-button").css("display", "flex");
   } else {
     $("#scroll-button").css("display", "none");

@@ -1,0 +1,70 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  color: var(--colour2);
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
+
+  main {
+    width: 90%;
+    background-color: inherit;
+    position: relative;
+    top: 520px;
+    margin: auto;
+
+    #scroll-button {
+      display: none;
+      position: fixed;
+      right: 20px;
+      bottom: 30px;
+      border-radius: 75%;
+      height: 80px;
+      width: 80px;
+      background-color: red;
+      justify-content: center;
+      &:hover {
+        background-color: var(--colour3);
+        cursor: pointer;
+      }
+
+      svg {
+        height: 50px;
+        width: 50px;
+        fill: white;
+        display: inherit;
+      }
+    }
+  }
+}
+
+:root {
+  --colour1: #8fa2df;
+  --colour2: #545149;
+  --colour3: #4056a1;
+}
+
+@media only screen and (min-width: 1024px) {
+  body > main {
+    width: calc(100vw - (240px + 35% + 40px + 100px));
+    top: 210px;
+    position: absolute;
+    left: calc(240px + 35% + 40px);
+  }
+}
