@@ -41,3 +41,29 @@
   font-family: "Bungee", cursive;
   margin-top: 12px;
 }
+
+#error-div {
+  display: none;
+  position: relative;
+  border: red 2px solid;
+  text-align: left;
+  height: 50px;
+  margin-top: 30px;
+  padding-top: 7px;
+  padding-left: 50px;
+}
+
+.error-sign {
+  height: 30px;
+  float: left;
+  fill: red;
+}
+
+.error-message {
+  margin-top: 0px;
+  display: flex;
+  color: black;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding-top: 2px;
+}

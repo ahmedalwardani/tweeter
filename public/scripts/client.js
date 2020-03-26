@@ -5,7 +5,7 @@ $(document).ready(() => {
    <header>
    <img src="${tweetObj.user.avatars}" alt="Profile Pic!" />
    <div class="full-name">${tweetObj.user.name}</div>
-   <div class="account">${tweetObj.user.handle}</div>
+   <div class="account">${tweetObj.user.handle.text()}</div>
  </header>
  <div class="tweet-content">${tweetObj.content.text}</div>
  <footer>
@@ -60,6 +60,7 @@ $(document).ready(() => {
       `);
     return $tweet;
   };
+
  
   const getTweets = () => {
     $.ajax({
@@ -82,11 +83,18 @@ $(document).ready(() => {
   $("#submit-form").on("submit", function(event) {
     event.preventDefault();
     if ($("#tweet-text").val().length === 0 || !$("#tweet-text").val()) {
-      alert("empty tweet!");
+      $("#error-div").children("p").remove();
+      $("#error-div").append("<p class=error-message>Please enter something!</p>");
+      $("#error-div").css("display", "flex");
+      $(".submit-button").blur();
       
     } else if ($("#tweet-text").val().length > 140) {
-      alert("exceeding allowed tweet length!");
+      $("#error-div").children("p").remove();
+      $("#error-div").append("<p class=error-message>Exceeding allowed tweet length!</p>");
+      $("#error-div").css("display", "flex");
+      $(".submit-button").blur();
     } else {
+      $("#error-div").css("display", "none");
       $.ajax({
         url: "/tweets",
         type: "POST",
@@ -95,6 +103,7 @@ $(document).ready(() => {
         getTweets();
         $("#tweet-text").val("");
         $(".counter").val("140");
+        $(".submit-button").blur();
       });
     }
   });
