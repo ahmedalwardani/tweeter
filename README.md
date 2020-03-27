@@ -14,8 +14,6 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## ![Scroll to top button](./docs/scroll-to-top-button.png)
 
-![User URLs](./docs/userURLs.png)
-
 ## Dependencies
 
 - Express
