@@ -23,6 +23,7 @@
   }
 }
 
+//Resetting the header's CSS properties for viewing on desktop for a responsive design
 @media only screen and (min-width: 1024px) {
   .user-header {
     width: 35%;

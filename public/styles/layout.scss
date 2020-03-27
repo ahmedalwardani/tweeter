@@ -60,6 +60,7 @@ body {
   --colour3: #4056a1;
 }
 
+//Resetting the header's CSS properties for viewing on desktop for a responsive design
 @media only screen and (min-width: 1024px) {
   body > main {
     width: calc(100vw - (240px + 35% + 40px + 100px));

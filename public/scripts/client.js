@@ -1,4 +1,7 @@
+//Code after line 2 will only run once the page Document Object Model (DOM) is ready for JavaScript code to execute.
 $(document).ready(() => {
+
+  //Function that creates a "tweet" article, given a tweet object
   const createTweetElement = tweetObj => {
     const $tweet = $("<article>").addClass("tweet");
     $tweet.append(`
@@ -63,6 +66,7 @@ $(document).ready(() => {
     return $tweet;
   };
 
+  //Send a GET request to the server to fetch all stored tweets (as an array). The reverse() method is applied to render most recent tweets first
   const getTweets = () => {
     $.ajax({
       url: "/tweets",
@@ -73,6 +77,7 @@ $(document).ready(() => {
     });
   };
 
+  //This function loops over an array of tweet objects and appends each tweet to existing tweets by calling the createTweetElement() on each tweet
   const renderTweets = tweets => {
     $("#tweets-container").empty();
     for (const tweet of tweets) {
@@ -80,27 +85,38 @@ $(document).ready(() => {
     }
   };
 
+  //Listen to a submit event on the tweet submittal form
   $(".submit-form").on("submit", function(event) {
+
+    //Prevent browser from refreshing upon click
     event.preventDefault();
     $("#error-div")
       .children("p")
       .remove();
+
+    //Prompt user to enter a something when tweet is empty or null
     if ($("#tweet-text").val().length === 0 || !$("#tweet-text").val()) {
       $("#error-div").append(
         "<p class=error-message>Please enter something!</p>"
       );
       $("#error-div").slideDown();
+    
+    //Prompt user to reduce tweet length if exceeding maximum allowable length
     } else if ($("#tweet-text").val().length > 140) {
       $("#error-div").append(
         "<p class=error-message>Exceeding allowed tweet length!</p>"
       );
       $("#error-div").slideDown();
+
+    //Send a post request if tweet is valid
     } else {
       $("#error-div").css("display", "none");
       $.ajax({
         url: "/tweets",
         type: "POST",
         data: $(this).serialize()
+
+      //Display all tweets upon successful post request submission
       }).then(() => {
         getTweets();
         $("#tweet-text").val("");
@@ -111,10 +127,15 @@ $(document).ready(() => {
     $("#tweet-text").focus();
   });
 
+  //Listen to a click event on the "write-tweet" button
   $(".write-tweet").click(() => {
+    
+    //Slide down tweet form and prompting user's input
     if ($("#main-form").css("display") === "none") {
       $("#main-form").slideDown();
       $("#tweet-text").focus();
+
+    //If form is already open, slide it back up, remove any previous tweet in text area, and reset counter
     } else {
       $("#main-form").slideUp();
       $("#tweet-text").val("");
@@ -125,9 +146,10 @@ $(document).ready(() => {
     $(".write-tweet").blur();
   });
 
-  // Only on page load
+  // Display all tweets upon page load
   getTweets();
 
+  //Escape function rendering any Javascript input by a user in tweet area as normal text (cross-site scripting to prevent malicious actions)
   const escape =  function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
